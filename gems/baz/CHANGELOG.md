@@ -1,5 +1,12 @@
 ## [Unreleased]
 
+## [1.2.0](https://github.com/bokoboshahni/ruby-monorepo-demo/compare/baz/v1.1.0...baz/v1.2.0) (2023-01-27)
+
+
+### Features
+
+* add a test ([5adf5d4](https://github.com/bokoboshahni/ruby-monorepo-demo/commit/5adf5d47a8cc40fd5fa1545916308f555df9aa50))
+
 ## [1.1.0](https://github.com/bokoboshahni/ruby-monorepo-demo/compare/baz-v1.0.0...baz/v1.1.0) (2023-01-27)
 
 
