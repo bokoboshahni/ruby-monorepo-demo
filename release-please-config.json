@@ -1,8 +1,14 @@
 {
   "release-type": "ruby",
   "packages": {
-    "gems/bar": {},
-    "gems/baz": {},
-    "gems/qux": {}
+    "gems/bar": {
+      "package-name": "bar"
+    },
+    "gems/baz": {
+      "package-name": "baz"
+    },
+    "gems/qux": {
+      "package-name": "qux"
+    }
   }
 }
