@@ -12,6 +12,40 @@
     "libsDir": "gems"
   },
   "namedInputs": {
-    "default": ["{projectRoot}/**/*"]
+    "sharedGlobals": [
+      "{workspaceRoot}/Gemfile",
+      "{workspaceRoot}/Gemfile.lock"
+    ],
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "production": ["default", "!{projectRoot}/spec/**/*"]
+  },
+  "targetDefaults": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "{projectRoot}",
+        "commands": ["BUNDLE_GEMFILE=$PWD/../../Gemfile bundle exec rake build"]
+      },
+      "inputs": ["production", "^production"],
+      "outputs": ["{projectRoot}/pkg"]
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "{projectRoot}",
+        "command": "BUNDLE_GEMFILE=$PWD/../../Gemfile bundle exec standardrb -P -f simple -o .rubocop_status"
+      },
+      "inputs": ["default", "{workspaceRoot}/.standard.yml"],
+      "outputs": ["{projectRoot}/.rubocop_status"]
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "{projectRoot}",
+        "commands": ["BUNDLE_GEMFILE=$PWD/../../Gemfile bundle exec rake spec"]
+      },
+      "inputs": ["default", "^production"],
+      "outputs": ["{projectRoot}/.rspec_status"]
+    }
   }
 }

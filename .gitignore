@@ -47,4 +47,5 @@ Thumbs.db
 /gems/*/spec/reports/
 /gems/*/tmp/
 /gems/*/.rspec_status
+/gems/*/.rubocop_status
 /gems/*/tags
