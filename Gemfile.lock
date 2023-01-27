@@ -12,7 +12,7 @@ PATH
 PATH
   remote: gems/qux
   specs:
-    qux (1.1.0)
+    qux (1.2.0)
       baz
 
 GEM
