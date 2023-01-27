@@ -9,7 +9,7 @@ on:
     branches:
       - main
 
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
   main:
@@ -21,21 +21,21 @@ jobs:
           - '3.2.0'
 
     steps:
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: ${{ matrix.ruby }}
-        bundler-cache: true
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 18
-    - uses: nrwl/nx-set-shas@v3
-    - run: npm ci
-    - run: npx nx workspace-lint
-    - run: npx nx format:check
-    - run: npx nx affected --target=lint --parallel=3
-    - run: npx nx affected --target=build --parallel=3
-    - run: npx nx affected --target=test --parallel=3
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - uses: nrwl/nx-set-shas@v3
+      - run: npm ci
+      - run: npx nx workspace-lint
+      - run: npx nx format:check
+      - run: npx nx affected --target=lint --parallel=3
+      - run: npx nx affected --target=build --parallel=3
+      - run: npx nx affected --target=test --parallel=3
