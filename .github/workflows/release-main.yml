@@ -25,13 +25,19 @@ jobs:
         if: ${{ steps.release.outputs.releases_created }}
         with:
           ruby-version: "3.2.0"
+      - uses: actions/setup-node@v3
+        if: ${{ steps.release.outputs.releases_created }}
+        with:
+          node-version: 18
       - name: commit
         if: ${{ steps.release.outputs.releases_created }}
         run: |-
           set -e
           git config --global user.name "GitHub Actions Bot"
           git config user.email '<>'
+          npm ci
           bundle install
-          git add Gemfile.lock
-          git commit -m "chore: update Gemfile.lock"
+          npx nx format:write
+          git add .
+          git commit -m "chore: post-release clean-up"
           git push origin main
