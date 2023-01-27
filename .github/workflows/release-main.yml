@@ -8,38 +8,11 @@ name: Release
 permissions: write-all
 
 jobs:
-  release-bar:
+  release:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v3
         id: release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          release-type: ruby
-          package-name: bar
-          path: gems/bar
-          monorepo-tags: true
-
-  release-baz:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: google-github-actions/release-please-action@v3
-        id: release
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          release-type: ruby
-          package-name: baz
-          path: gems/baz
-          monorepo-tags: true
-
-  release-qux:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: google-github-actions/release-please-action@v3
-        id: release
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          release-type: ruby
-          package-name: qux
-          path: gems/qux
-          monorepo-tags: true
+          command: manifest
