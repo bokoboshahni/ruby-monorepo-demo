@@ -4,6 +4,10 @@ on:
       - main
 
 name: Release
+
+permissions:
+  pull-requests: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
