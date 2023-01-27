@@ -4,5 +4,6 @@ require_relative "bar/version"
 
 module Bar
   class Error < StandardError; end
-  # Your code goes here...
+
+  class AnotherError < Error; end
 end
