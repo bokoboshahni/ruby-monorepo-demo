@@ -5,8 +5,7 @@ on:
 
 name: Release
 
-permissions:
-  pull-requests: write
+permissions: write-all
 
 jobs:
   release:
