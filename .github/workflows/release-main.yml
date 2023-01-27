@@ -16,3 +16,22 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           command: manifest
+
+      - uses: actions/checkout@v3
+        if: ${{ steps.release.outputs.releases_created }}
+        with:
+          fetch-depth: 0
+      - uses: ruby/setup-ruby@v1
+        if: ${{ steps.release.outputs.releases_created }}
+        with:
+          ruby-version: "3.2.0"
+      - name: commit
+        if: ${{ steps.release.outputs.releases_created }}
+        run: |-
+          set -e
+          git config --global user.name "GitHub Actions Bot"
+          git config user.email '<>'
+          bundle install
+          git add Gemfile.lock
+          git commit -m "chore: update Gemfile.lock"
+          git push origin main
