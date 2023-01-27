@@ -1,5 +1,12 @@
 ## [Unreleased]
 
+## [1.2.0](https://github.com/bokoboshahni/ruby-monorepo-demo/compare/qux/v1.1.0...qux/v1.2.0) (2023-01-27)
+
+
+### Features
+
+* add something ([4312c53](https://github.com/bokoboshahni/ruby-monorepo-demo/commit/4312c535b2c9a0b244e4b9ffd9fad1cd37490839))
+
 ## [1.1.0](https://github.com/bokoboshahni/ruby-monorepo-demo/compare/qux-v1.0.0...qux/v1.1.0) (2023-01-27)
 
 
