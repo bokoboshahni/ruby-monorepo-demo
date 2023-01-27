@@ -1,0 +1,8 @@
+{
+  "release-type": "ruby",
+  "packages": {
+    "gems/bar": {},
+    "gems/baz": {},
+    "gems/qux": {}
+  }
+}
