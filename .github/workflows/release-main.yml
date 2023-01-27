@@ -1,0 +1,33 @@
+on:
+  push:
+    branches:
+      - main
+
+name: release-main
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          command: manifest
+      - uses: actions/checkout@v3
+        if: ${{ steps.release.outputs.release_created }}
+        with:
+          fetch-depth: 0
+      - name: Set up Ruby
+        if: ${{ steps.release.outputs.release_created }}
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+      - uses: actions/setup-node@v3
+        if: ${{ steps.release.outputs.release_created }}
+        with:
+          node-version: 18
+      - uses: nrwl/nx-set-shas@v3
+      - run: npm ci
+        if: ${{ steps.release.outputs.release_created }}
+      - run: npx nx run-many --target=build --parallel=3
+        if: ${{ steps.release.outputs.release_created }}
