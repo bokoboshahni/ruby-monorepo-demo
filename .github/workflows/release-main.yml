@@ -37,7 +37,6 @@ jobs:
           git config user.email '<>'
           npm ci
           bundle install
-          npx nx format:write
           git add .
           git commit -m "chore: post-release clean-up"
           git push origin main
