@@ -26,7 +26,7 @@
         "cwd": "{projectRoot}",
         "commands": ["BUNDLE_GEMFILE=$PWD/../../Gemfile bundle exec rake build"]
       },
-      "inputs": ["production", "^production"],
+      "inputs": ["production", "^production", { "runtime": "ruby -v" }],
       "outputs": ["{projectRoot}/pkg"]
     },
     "lint": {
@@ -35,7 +35,11 @@
         "cwd": "{projectRoot}",
         "command": "BUNDLE_GEMFILE=$PWD/../../Gemfile bundle exec standardrb -P -f simple -o .rubocop_status"
       },
-      "inputs": ["default", "{workspaceRoot}/.standard.yml"],
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.standard.yml",
+        { "runtime": "ruby -v" }
+      ],
       "outputs": ["{projectRoot}/.rubocop_status"]
     },
     "test": {
@@ -44,7 +48,7 @@
         "cwd": "{projectRoot}",
         "commands": ["BUNDLE_GEMFILE=$PWD/../../Gemfile bundle exec rake spec"]
       },
-      "inputs": ["default", "^production"],
+      "inputs": ["default", "^production", { "runtime": "ruby -v" }],
       "outputs": ["{projectRoot}/.rspec_status"]
     }
   }
