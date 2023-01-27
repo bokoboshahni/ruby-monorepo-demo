@@ -1,0 +1,33 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "gems/bar",
+  "projectType": "library",
+  "implicitDependencies": ["baz", "qux"],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "gems/bar",
+        "commands": ["BUNDLE_GEMFILE=$PWD/../../Gemfile bundle exec rake build"]
+      },
+      "outputs": ["gems/bar/pkg"]
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "gems/bar",
+        "command": "BUNDLE_GEMFILE=$PWD/../../Gemfile bundle exec standardrb -P -f simple -o rubocop.log"
+      },
+      "outputs": ["gems/bar/rubocop.log"]
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "gems/bar",
+        "commands": ["BUNDLE_GEMFILE=$PWD/../../Gemfile bundle exec rake spec"]
+      },
+      "dependsOn": ["build"],
+      "outputs": ["gems/bar/coverage"]
+    }
+  }
+}

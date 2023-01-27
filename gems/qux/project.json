@@ -1,0 +1,33 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "gems/qux",
+  "projectType": "library",
+  "implicitDependencies": ["baz"],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "gems/qux",
+        "commands": ["BUNDLE_GEMFILE=$PWD/../../Gemfile bundle exec rake build"]
+      },
+      "outputs": ["gems/qux/pkg"]
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "gems/qux",
+        "command": "BUNDLE_GEMFILE=$PWD/../../Gemfile bundle exec standardrb -P -f simple -o rubocop.log"
+      },
+      "outputs": ["gems/qux/rubocop.log"]
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "gems/qux",
+        "commands": ["BUNDLE_GEMFILE=$PWD/../../Gemfile bundle exec rake spec"]
+      },
+      "dependsOn": ["build"],
+      "outputs": ["gems/qux/coverage"]
+    }
+  }
+}

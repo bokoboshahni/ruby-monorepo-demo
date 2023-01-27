@@ -37,3 +37,14 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+/gems/*/.bundle/
+/gems/*/.yardoc
+/gems/*/_yardoc/
+/gems/*/coverage/
+/gems/*/doc/
+/gems/*/pkg/
+/gems/*/spec/reports/
+/gems/*/tmp/
+/gems/*/.rspec_status
+/gems/*/tags
