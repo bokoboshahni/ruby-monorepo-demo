@@ -8,7 +8,7 @@ name: Release
 permissions: write-all
 
 jobs:
-  release:
+  Release:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v3
