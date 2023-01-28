@@ -8,9 +8,7 @@
       "bump-patch-for-minor-pre-major": true
     },
     "gems/baz": {
-      "package-name": "baz",
-      "prerelease": true,
-      "release-as": "1.0.0.beta.1"
+      "package-name": "baz"
     },
     "gems/qux": {
       "package-name": "qux",
