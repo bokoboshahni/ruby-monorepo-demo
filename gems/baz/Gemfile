@@ -2,6 +2,8 @@
 
 source "https://rubygems.org"
 
+gemspec
+
 require_relative "../../scripts/dependency_helper"
 gemspec_dependencies(__dir__)
 

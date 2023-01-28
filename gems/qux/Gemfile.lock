@@ -1,7 +1,13 @@
 PATH
   remote: ../baz
   specs:
-    baz (1.0.0.alpha1)
+    baz (1.0.0.pre.alpha1)
+
+PATH
+  remote: .
+  specs:
+    qux (0.1.0)
+      baz
 
 GEM
   remote: https://rubygems.org/
@@ -65,6 +71,7 @@ PLATFORMS
 
 DEPENDENCIES
   baz!
+  qux!
   rake (~> 13.0)
   rspec (~> 3.0)
   simplecov (~> 0.22.0)

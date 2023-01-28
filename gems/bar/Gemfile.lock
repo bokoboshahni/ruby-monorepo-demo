@@ -1,7 +1,13 @@
 PATH
   remote: ../baz
   specs:
-    baz (1.0.0.alpha1)
+    baz (1.0.0.pre.alpha1)
+
+PATH
+  remote: .
+  specs:
+    bar (0.1.0)
+      baz
 
 GEM
   remote: https://rubygems.org/
@@ -46,7 +52,7 @@ GEM
     rubocop-performance (1.15.2)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
-    ruby-progrebar (0.1.0)
+    ruby-progressbar (1.11.0)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -64,6 +70,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  bar!
   baz!
   rake (~> 13.0)
   rspec (~> 3.0)
