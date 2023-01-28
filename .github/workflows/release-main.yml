@@ -24,7 +24,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         if: ${{ steps.release.outputs.releases_created }}
         with:
-          ruby-version: "3.2.0"
+          ruby-version: '3.2.0'
       - uses: actions/setup-node@v3
         if: ${{ steps.release.outputs.releases_created }}
         with:

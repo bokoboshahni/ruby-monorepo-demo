@@ -4,8 +4,9 @@
   "projectType": "library",
   "implicitDependencies": ["baz"],
   "targets": {
-    "build": {},
-    "lint": {},
-    "test": {}
+    "ruby:build": {},
+    "ruby:lint": {},
+    "ruby:lint:fix": {},
+    "ruby:test": {}
   }
 }

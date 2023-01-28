@@ -2,7 +2,7 @@
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "nx/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
         "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
@@ -20,20 +20,20 @@
     "production": ["default", "!{projectRoot}/spec/**/*"]
   },
   "targetDefaults": {
-    "build": {
+    "ruby:build": {
       "executor": "nx:run-commands",
       "options": {
         "cwd": "{projectRoot}",
-        "commands": ["BUNDLE_GEMFILE=$PWD/../../Gemfile bundle exec rake build"]
+        "commands": ["bundle exec rake build"]
       },
       "inputs": ["production", "^production", { "runtime": "ruby -v" }],
       "outputs": ["{projectRoot}/pkg"]
     },
-    "lint": {
+    "ruby:lint": {
       "executor": "nx:run-commands",
       "options": {
         "cwd": "{projectRoot}",
-        "command": "BUNDLE_GEMFILE=$PWD/../../Gemfile bundle exec standardrb -P -f simple -o .rubocop_status"
+        "command": "bundle exec standardrb -P -f simple -o .rubocop_status"
       },
       "inputs": [
         "default",
@@ -42,11 +42,24 @@
       ],
       "outputs": ["{projectRoot}/.rubocop_status"]
     },
-    "test": {
+    "ruby:lint:fix": {
       "executor": "nx:run-commands",
       "options": {
         "cwd": "{projectRoot}",
-        "commands": ["BUNDLE_GEMFILE=$PWD/../../Gemfile bundle exec rake spec"]
+        "command": "bundle exec standardrb --fix"
+      },
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.standard.yml",
+        { "runtime": "ruby -v" }
+      ],
+      "outputs": ["{projectRoot}/.rubocop_status"]
+    },
+    "ruby:test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "{projectRoot}",
+        "commands": ["bundle exec rake spec"]
       },
       "inputs": ["default", "^production", { "runtime": "ruby -v" }],
       "outputs": ["{projectRoot}/.rspec_status"]
