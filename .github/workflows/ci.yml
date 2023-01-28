@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  main:
+  Build:
     runs-on: ubuntu-latest
     name: Ruby ${{ matrix.ruby }}
     strategy:
@@ -30,9 +30,24 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+          run_install: false
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
       - uses: nrwl/nx-set-shas@v3
-      - run: npm ci
-      - run: npx nx workspace-lint
+      - run: pnpm install
       - run: npx nx affected --target=ruby:lint --parallel=3
       - run: npx nx affected --target=ruby:build --parallel=3
       - run: npx nx affected --target=ruby:test --parallel=3
