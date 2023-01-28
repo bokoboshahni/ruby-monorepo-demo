@@ -6,7 +6,7 @@ PATH
 PATH
   remote: .
   specs:
-    qux (0.1.0)
+    qux (1.0.0)
       baz
 
 GEM

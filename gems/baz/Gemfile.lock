@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    baz (1.0.0.pre.alpha1)
+    baz (1.0.0)
 
 GEM
   remote: https://rubygems.org/
