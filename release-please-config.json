@@ -1,4 +1,5 @@
 {
+  "bootstrap-sha": "3b35b4bd608e771292ef56c650548b14f2d5ddc7",
   "release-type": "ruby",
   "packages": {
     "gems/bar": {
