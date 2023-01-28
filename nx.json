@@ -4,7 +4,12 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "ruby:build",
+          "ruby:install",
+          "ruby:lint",
+          "ruby:test"
+        ]
       }
     }
   },
@@ -22,6 +27,7 @@
   "targetDefaults": {
     "ruby:build": {
       "executor": "nx:run-commands",
+      "dependsOn": ["ruby:install"],
       "options": {
         "cwd": "{projectRoot}",
         "commands": ["bundle exec rake build"]
@@ -29,8 +35,18 @@
       "inputs": ["production", "^production", { "runtime": "ruby -v" }],
       "outputs": ["{projectRoot}/pkg"]
     },
+    "ruby:install": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "{projectRoot}",
+        "command": "bundle install"
+      },
+      "inputs": ["default", { "runtime": "ruby -v" }],
+      "outputs": ["{projectRoot}/Gemfile.lock"]
+    },
     "ruby:lint": {
       "executor": "nx:run-commands",
+      "dependsOn": ["ruby:install"],
       "options": {
         "cwd": "{projectRoot}",
         "command": "bundle exec standardrb -P -f simple -o .rubocop_status"
@@ -44,6 +60,7 @@
     },
     "ruby:lint:fix": {
       "executor": "nx:run-commands",
+      "dependsOn": ["ruby:install"],
       "options": {
         "cwd": "{projectRoot}",
         "command": "bundle exec standardrb --fix"
@@ -57,6 +74,7 @@
     },
     "ruby:test": {
       "executor": "nx:run-commands",
+      "dependsOn": ["ruby:install"],
       "options": {
         "cwd": "{projectRoot}",
         "commands": ["bundle exec rake spec"]

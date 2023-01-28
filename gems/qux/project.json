@@ -5,6 +5,7 @@
   "implicitDependencies": ["baz"],
   "targets": {
     "ruby:build": {},
+    "ruby:install": {},
     "ruby:lint": {},
     "ruby:lint:fix": {},
     "ruby:test": {}
