@@ -6,4 +6,6 @@ module Bar
   class Error < StandardError; end
 
   class AnotherError < Error; end
+
+  class MoreError < Error; end
 end
