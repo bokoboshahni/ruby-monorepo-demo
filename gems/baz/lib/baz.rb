@@ -4,5 +4,4 @@ require_relative "baz/version"
 
 module Baz
   class Error < StandardError; end
-  # Your code goes here...
 end
