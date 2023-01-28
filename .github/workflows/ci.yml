@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - '*.*.x'
+      - 'v*.*.x'
 
   pull_request:
 

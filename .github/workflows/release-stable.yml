@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - '*.*.x'
+      - 'v*.*.x'
 
 name: Release
 
