@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/bokoboshahni/ruby-monorepo-demo/compare/bar/v1.0.0...bar/v1.0.1) (2023-01-28)
+
+
+### Bug Fixes
+
+* fix for CVE-1234 ([7441adb](https://github.com/bokoboshahni/ruby-monorepo-demo/commit/7441adb9e8c69b7a88c0cd3fc2897eee1e3b0b79))
+
 ## [1.0.0](https://github.com/bokoboshahni/ruby-monorepo-demo/compare/bar/v0.1.0...bar/v1.0.0) (2023-01-28)
 
 
