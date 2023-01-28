@@ -6,7 +6,7 @@ PATH
 PATH
   remote: .
   specs:
-    bar (1.0.0)
+    bar (1.0.1)
       baz
 
 GEM
