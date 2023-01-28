@@ -3,13 +3,21 @@
   "release-type": "ruby",
   "packages": {
     "gems/bar": {
-      "package-name": "bar"
+      "package-name": "bar",
+      "bump-minor-pre-major": true,
+      "bump-patch-for-minor-pre-major": true,
+      "release-as": "0.1.0"
     },
     "gems/baz": {
-      "package-name": "baz"
+      "package-name": "baz",
+      "prerelease": true,
+      "release-as": "1.0.0.alpha1"
     },
     "gems/qux": {
-      "package-name": "qux"
+      "package-name": "qux",
+      "bump-minor-pre-major": true,
+      "bump-patch-for-minor-pre-major": true,
+      "release-as": "0.1.0"
     }
   }
 }
