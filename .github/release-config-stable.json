@@ -1,0 +1,16 @@
+{
+  "bootstrap-sha": "3b35b4bd608e771292ef56c650548b14f2d5ddc7",
+  "release-type": "ruby",
+  "versioning": "always-bump-patch",
+  "packages": {
+    "gems/bar": {
+      "package-name": "bar"
+    },
+    "gems/baz": {
+      "package-name": "baz"
+    },
+    "gems/qux": {
+      "package-name": "qux"
+    }
+  }
+}

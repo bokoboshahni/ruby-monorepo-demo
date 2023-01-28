@@ -1,0 +1,21 @@
+on:
+  push:
+    branches:
+      - '*.*.x'
+
+name: Release
+
+permissions: write-all
+
+jobs:
+  Release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          command: manifest
+          config-file: .github/release-config-stable.json
+          manifest-file: .github/release-manifest.json
+          default-branch: ${{ github.ref_name }}
