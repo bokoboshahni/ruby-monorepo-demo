@@ -5,19 +5,16 @@
     "gems/bar": {
       "package-name": "bar",
       "bump-minor-pre-major": true,
-      "bump-patch-for-minor-pre-major": true,
-      "release-as": "0.1.0"
+      "bump-patch-for-minor-pre-major": true
     },
     "gems/baz": {
       "package-name": "baz",
-      "prerelease": true,
-      "release-as": "1.0.0-alpha1"
+      "prerelease": true
     },
     "gems/qux": {
       "package-name": "qux",
       "bump-minor-pre-major": true,
-      "bump-patch-for-minor-pre-major": true,
-      "release-as": "0.1.0"
+      "bump-patch-for-minor-pre-major": true
     }
   }
 }
