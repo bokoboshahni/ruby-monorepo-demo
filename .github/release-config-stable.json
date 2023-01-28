@@ -2,7 +2,7 @@
   "bootstrap-sha": "3b35b4bd608e771292ef56c650548b14f2d5ddc7",
   "release-type": "ruby",
   "versioning": "always-bump-patch",
-  "group-pull-request-title-pattern": "chore: release ${branch}.x",
+  "group-pull-request-title-pattern": "chore: release ${branch}",
   "packages": {
     "gems/bar": {
       "package-name": "bar"
