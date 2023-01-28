@@ -49,3 +49,6 @@ Thumbs.db
 /gems/*/.rspec_status
 /gems/*/.rubocop_status
 /gems/*/tags
+
+*.env
+.env.local*
